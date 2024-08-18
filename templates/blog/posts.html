@@ -1,0 +1,24 @@
+{% extends 'layout_port.html'%}
+{%block content%}
+<h1>Posts</h1>
+
+{% for post in posts%}
+    <div class="p-3">
+        <div class="card card-body bg-black">
+            <div class="row">
+                <div class="col-3">
+                    <img class="img-fluid" src="{{post.image.url}}" alt="{{post.tittle}}">
+                </div>
+                <div class="col-9">
+                    <h2>{{post.tittle}}</h2>
+                    <p>{{post.description|safe|truncatechars:100}}</p> <!-- Al ser una vista previa, limita solo a 100 caracteres con truncatechars-->
+                    <p>{{post.date|date:'M d Y'}}</p> <!-- Doy formato a la fecha --> 
+                    <a class="btn btn-primary" href="{% url 'blog:post_detail' post.id %}">{{post.tittle}}</a>
+                </div>
+            </div> 
+        </div>
+    </div>
+
+{% endfor %}
+
+{%endblock%}

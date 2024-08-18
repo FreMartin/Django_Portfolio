@@ -1,0 +1,43 @@
+{%extends 'layout_port.html'%}
+
+{%block content%}
+
+{%load static %}
+<header class="row bg-black">
+    <div class="col-md-4">
+        <img class="img-fluid" src="{% static 'portfolio/profile.jpg' %}" alt="">
+    </div> 
+    <div class="col-md-8 my-auto">
+        <h1>I am <strong>Martin Farfan</strong></h1>
+        <h3>I am learning Python in Django</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni architecto id sunt? Quos at doloremque, non debitis voluptatibus obcaecati quis voluptas labore delectus tempora reiciendis. Veniam praesentium, eum ratione rerum accusantium commodi velit quas, magni odio reiciendis nam molestias sed nostrum iste! Officiis libero odit fuga optio neque, ratione voluptatem dolorum ducimus voluptatibus, veritatis quia consequuntur, et mollitia illum eum quis nisi debitis soluta quod doloribus est recusandae natus cupiditate iste? Consequuntur voluptates, libero iure alias cupiditate natus vitae eligendi praesentium enim, accusantium tenetur quaerat. Rem, et quos possimus quo deserunt dolorum ut, voluptatibus voluptates, amet quasi eaque odio optio.</p>
+        <a href="{% static 'portfolio/cv.pdf' %}" class="btn btn-primary btn-lg rounded-0 my-3" target="_blank">Download CV</a>
+    </div>
+</header>
+
+<div class="row my-4 text-center">
+    <h3>My Projects</h3>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa, iusto?</p>
+    {% for project in projects%}
+    <div class="col-md-4 p-4">
+        <div class="card bg-black card-project">
+            <img class="card-img-top" src="{{project.image.url}}" alt="{{project.tittle}}">
+            <div class="card-body text-light">
+                <h2>{{project.tittle}}</h2>
+                <p>{{project.description}}</p>
+                
+    
+                {% if project.url%}
+                    <a class="btn btn-light rounded-0 btn-sm" href="{{project.url}}" target="_blank">{{project.url}}</a>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>
+        
+        
+    {% endfor %}
+</div>
+{% endblock %}
+
+

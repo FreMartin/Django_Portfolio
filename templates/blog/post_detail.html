@@ -1,0 +1,14 @@
+{% extends 'layout_port.html'%}
+{%block content%}
+<div class="text-center">
+    <h2>{{post.tittle}}</h2>
+    <h3 class="my-2 h5 text-muted" >{{post.date|date:'F jS Y'}}</h3>
+    <img class="img-fluid" src="{{post.image.url}}" alt="{{post.tittle}}">
+    <div class="my-4">
+        <p>{{post.description|safe}}</p>  <!--Safe interpreta el codigo html que puede contener el texto de descripcion-->
+    </div>
+</div>
+
+
+
+{%endblock%}
